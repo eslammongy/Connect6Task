@@ -35,8 +35,8 @@ class SheetPriceRange extends StatelessWidget {
               initialValue:
                   setInitialValue(getRestaurantStore(context).minPrice),
               onChanged: (min) {
-                getRestaurantStore(context).minPrice =
-                    double.parse(min).toInt();
+                double minPrice = double.tryParse(min) ?? 0;
+                getRestaurantStore(context).minPrice = minPrice.toInt();
               },
             ),
             const SizedBox(
@@ -50,8 +50,8 @@ class SheetPriceRange extends StatelessWidget {
                   setInitialValue(getRestaurantStore(context).maxPrice),
               keyboardType: TextInputType.number,
               onChanged: (max) {
-                getRestaurantStore(context).maxPrice =
-                    double.parse(max).toInt();
+                final maxPrice = double.tryParse(max) ?? 0;
+                getRestaurantStore(context).maxPrice = maxPrice.toInt();
               },
             ),
           ],
