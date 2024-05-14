@@ -52,12 +52,7 @@ class _SheetTypeOptionsState extends State<SheetTypeOptions> {
                 setState(() {
                   type = value ?? listOfCuisine.first;
                 });
-                if (type == listOfCuisine.first) {
-                  getRestaurantStore(context).resetSearchResult();
-                } else {
-                  getRestaurantStore(context).searchByType(type!);
-                }
-                Navigator.of(context).pop();
+                getRestaurantStore(context).selectedType = type!;
               },
               style: AppTextStyles.font14BlueSemiBold,
               buttonStyleData: buttonStyleData(),

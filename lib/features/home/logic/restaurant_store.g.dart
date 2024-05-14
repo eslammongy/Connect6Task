@@ -56,33 +56,11 @@ mixin _$RestaurantStore on RestaurantStoreBase, Store {
   }
 
   @override
-  void searchByType(String type) {
+  void searchByFilters() {
     final _$actionInfo = _$RestaurantStoreBaseActionController.startAction(
-        name: 'RestaurantStoreBase.searchByType');
+        name: 'RestaurantStoreBase.searchByFilters');
     try {
-      return super.searchByType(type);
-    } finally {
-      _$RestaurantStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void searchByRating(double rating) {
-    final _$actionInfo = _$RestaurantStoreBaseActionController.startAction(
-        name: 'RestaurantStoreBase.searchByRating');
-    try {
-      return super.searchByRating(rating);
-    } finally {
-      _$RestaurantStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void searchByPriceRange(int min, int max) {
-    final _$actionInfo = _$RestaurantStoreBaseActionController.startAction(
-        name: 'RestaurantStoreBase.searchByPriceRange');
-    try {
-      return super.searchByPriceRange(min, max);
+      return super.searchByFilters();
     } finally {
       _$RestaurantStoreBaseActionController.endAction(_$actionInfo);
     }

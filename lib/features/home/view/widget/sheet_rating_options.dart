@@ -50,8 +50,7 @@ class _SheetRateOptionsState extends State<SheetRateOptions> {
                 setState(() {
                   rate = value ?? listOfRating.first;
                 });
-                getRestaurantStore(context).searchByRating(rate!);
-                Navigator.of(context).pop();
+                getRestaurantStore(context).selectedRating = rate!;
               },
               style: AppTextStyles.font14BlueSemiBold,
               buttonStyleData: buttonStyleData(),

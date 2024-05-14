@@ -11,6 +11,8 @@ class CustomizedTextField extends StatelessWidget {
     this.keyboardType,
     this.inputAction,
     this.controller,
+    this.onChanged,
+    this.initialValue,
   });
   final Function(String)? onSubmitted;
   final String? label;
@@ -18,14 +20,18 @@ class CustomizedTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? inputAction;
   final TextEditingController? controller;
+  final Function(String)? onChanged;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
+    controller?.text = initialValue ?? '';
     return Expanded(
       child: SizedBox(
         height: 50,
         child: TextField(
           controller: controller,
+          onChanged: onChanged,
           onSubmitted: onSubmitted,
           textInputAction: inputAction ?? TextInputAction.done,
           keyboardType: keyboardType ?? TextInputType.text,

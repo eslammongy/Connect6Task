@@ -36,24 +36,14 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(width: 10.w),
-                Observer(
-                  builder: (context) {
-                    if (!resStore.isSearchEnabled) {
-                      return const SizedBox.shrink();
-                    }
-                    return InkWell(
-                        onTap: () {
-                          controller.clear();
-                          resStore.resetSearchResult();
-                        },
-                        child: const Icon(Icons.cancel_outlined));
-                  },
-                ),
+                // This will show the cancel button if the search is enabled, so the user can delete the search result
+                _buildCancelSearchBtn(resStore, controller),
                 IconButton(
-                    onPressed: () async {
-                      await _displayFilterListSheet(context);
-                    },
-                    icon: const Icon(Icons.filter_list_rounded))
+                  onPressed: () async {
+                    await _displayFilterListSheet(context);
+                  },
+                  icon: const Icon(Icons.filter_list_rounded),
+                )
               ],
             ),
             SizedBox(height: 20.h),
@@ -61,6 +51,23 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Observer _buildCancelSearchBtn(
+      RestaurantStore resStore, TextEditingController controller) {
+    return Observer(
+      builder: (context) {
+        if (!resStore.isSearchEnabled) {
+          return const SizedBox.shrink();
+        }
+        return InkWell(
+            onTap: () {
+              controller.clear();
+              resStore.resetSearchResult();
+            },
+            child: const Icon(Icons.cancel_outlined));
+      },
     );
   }
 

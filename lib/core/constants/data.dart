@@ -1,7 +1,7 @@
 import 'package:restaurants/core/constants/app_assets_manager.dart';
 import 'package:restaurants/features/home/model/restaurant_model.dart';
 
-List<RestaurantModel> restaurants = [
+List<RestaurantModel> dataSource = [
   RestaurantModel(
       name: 'Ramen House',
       cuisineType: 'Japanese',

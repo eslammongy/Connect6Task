@@ -1,7 +1,10 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
+import 'package:restaurants/core/helpers/utils.dart';
 import 'package:restaurants/core/theme/color_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants/core/theme/app_text_style.dart';
+import 'package:restaurants/features/home/logic/restaurant_store.dart';
 import 'package:restaurants/features/home/view/widget/sheet_price_range.dart';
 import 'package:restaurants/features/home/view/widget/sheet_type_options.dart';
 import 'package:restaurants/features/home/view/widget/sheet_rating_options.dart';
@@ -38,8 +41,48 @@ class FilterListSheetBody extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const SheetTypeOptions()
+            const SheetTypeOptions(),
+            const SizedBox(
+              height: 30,
+            ),
+            _filterSheetActionBtn(
+              onTap: () {
+                final resStore = getRestaurantStore(context);
+                if (resStore.maxPrice < resStore.minPrice) {
+                  displayToastMsg(context,
+                      "please max price should be greater than min price",
+                      type: ToastificationType.warning);
+                  return;
+                }
+                resStore.searchByFilters();
+                Navigator.pop(context);
+              },
+            )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _filterSheetActionBtn({Function()? onTap}) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        width: 300.w,
+        child: Card(
+          color: ColorsManager.mainBlue,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+              child: Text(
+                "Apply filter",
+                textAlign: TextAlign.center,
+                style: AppTextStyles.font16WhiteSemiBold,
+              ),
+            ),
+          ),
         ),
       ),
     );
