@@ -37,7 +37,7 @@ class CustomizedTextField extends StatelessWidget {
           keyboardType: keyboardType ?? TextInputType.text,
           decoration: InputDecoration(
             labelText: label ?? 'Search for a restaurant by name...',
-            labelStyle: AppTextStyles.font13GrayRegular,
+            labelStyle: AppTextStyles.font13GrayRegular.copyWith(fontSize: 13),
             focusedBorder: buildOutlineInputBorder(ColorsManager.mainBlue),
             enabledBorder: buildOutlineInputBorder(ColorsManager.lightGray),
             border: buildOutlineInputBorder(ColorsManager.lightGray),

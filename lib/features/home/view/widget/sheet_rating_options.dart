@@ -33,7 +33,7 @@ class _SheetRateOptionsState extends State<SheetRateOptions> {
       children: [
         Text(
           "Rating",
-          style: AppTextStyles.font14BlueSemiBold,
+          style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14),
         ),
         const Spacer(),
         SizedBox(
@@ -52,7 +52,7 @@ class _SheetRateOptionsState extends State<SheetRateOptions> {
                 });
                 getRestaurantStore(context).selectedRating = rate!;
               },
-              style: AppTextStyles.font14BlueSemiBold,
+              style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14),
               buttonStyleData: buttonStyleData(),
               dropdownStyleData: dropdownStyleData(),
               iconStyleData: const IconStyleData(
@@ -76,9 +76,11 @@ class _SheetRateOptionsState extends State<SheetRateOptions> {
             StarRating(
               rating: item,
             ),
-            Text("& Up",
-                style: AppTextStyles.font14BlueSemiBold
-                    .copyWith(color: ColorsManager.gray)),
+            Text(
+              "& Up",
+              style: AppTextStyles.font14BlueSemiBold
+                  .copyWith(fontSize: 14, color: ColorsManager.gray),
+            ),
           ],
         ));
   }

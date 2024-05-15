@@ -34,7 +34,8 @@ void displayToastMsg(BuildContext context, String msg,
     context: context,
     title: Text(
       msg,
-      style: AppTextStyles.font14BlueSemiBold.copyWith(color: Colors.white),
+      style: AppTextStyles.font14BlueSemiBold
+          .copyWith(color: Colors.white, fontSize: 14),
     ),
     type: type ?? ToastificationType.info,
     style: ToastificationStyle.simple,

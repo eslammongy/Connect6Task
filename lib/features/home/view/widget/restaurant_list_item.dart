@@ -35,8 +35,11 @@ class RestaurantListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(restaurant.name,
-                        style: AppTextStyles.font14BlueSemiBold),
+                    Text(
+                      restaurant.name,
+                      style: AppTextStyles.font14BlueSemiBold
+                          .copyWith(fontSize: 14),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),

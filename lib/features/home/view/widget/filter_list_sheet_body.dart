@@ -48,14 +48,26 @@ class FilterListSheetBody extends StatelessWidget {
             _filterSheetActionBtn(
               onTap: () {
                 final resStore = getRestaurantStore(context);
-                if (resStore.maxPrice < resStore.minPrice) {
-                  displayToastMsg(context,
-                      "please max price should be greater than min price",
-                      type: ToastificationType.warning);
-                  return;
+                if (resStore.maxPrice == 0 &&
+                    resStore.minPrice == 0 &&
+                    resStore.selectedRating == 1.0 &&
+                    resStore.selectedType == listOfCuisine.first) {
+                  displayToastMsg(
+                    context,
+                    "There is no filter applied",
+                    type: ToastificationType.warning,
+                  );
+                  Navigator.pop(context);
+                } else if (resStore.maxPrice < resStore.minPrice) {
+                  displayToastMsg(
+                    context,
+                    "Please ensure that the maximum price is greater than the minimum price",
+                    type: ToastificationType.warning,
+                  );
+                } else {
+                  resStore.searchByFilters();
+                  Navigator.pop(context);
                 }
-                resStore.searchByFilters();
-                Navigator.pop(context);
               },
             )
           ],

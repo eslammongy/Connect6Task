@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurants/core/helpers/utils.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:restaurants/core/theme/color_manager.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants/core/theme/app_text_style.dart';
 import 'package:restaurants/features/home/logic/restaurant_store.dart';
 
@@ -35,7 +36,7 @@ class _SheetTypeOptionsState extends State<SheetTypeOptions> {
       children: [
         Text(
           "Cuisine Type",
-          style: AppTextStyles.font14BlueSemiBold,
+          style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14.sp),
         ),
         const Spacer(),
         SizedBox(
@@ -54,7 +55,7 @@ class _SheetTypeOptionsState extends State<SheetTypeOptions> {
                 });
                 getRestaurantStore(context).selectedType = type!;
               },
-              style: AppTextStyles.font14BlueSemiBold,
+              style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14.sp),
               buttonStyleData: buttonStyleData(),
               dropdownStyleData: dropdownStyleData(),
               iconStyleData: const IconStyleData(
@@ -71,9 +72,10 @@ class _SheetTypeOptionsState extends State<SheetTypeOptions> {
   DropdownMenuItem<String> _buildDropDownItem(String item) {
     return DropdownMenuItem<String>(
       value: item,
-      child: Text(item,
-          style: AppTextStyles.font14BlueSemiBold
-              .copyWith(color: ColorsManager.mainBlue)),
+      child: Text(
+        item,
+        style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14.sp),
+      ),
     );
   }
 }

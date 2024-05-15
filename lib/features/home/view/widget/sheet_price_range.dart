@@ -20,7 +20,7 @@ class SheetPriceRange extends StatelessWidget {
         ),
         Text(
           "Price",
-          style: AppTextStyles.font14BlueSemiBold,
+          style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14),
         ),
         const SizedBox(
           height: 10,
