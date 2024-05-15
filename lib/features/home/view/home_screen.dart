@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Restaurants",
-          style: AppTextStyles.font14BlueSemiBold,
+          style: AppTextStyles.font14BlueSemiBold.copyWith(fontSize: 14),
         ),
       ),
       body: Padding(
